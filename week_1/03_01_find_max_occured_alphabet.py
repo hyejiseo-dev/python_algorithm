@@ -8,18 +8,20 @@ def find_max_occurred_alphabet(string):
                       's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
     max_occurrence = 0  #빈도수
     max_alphabet = alphabet_array[0]
-    for alphabet in alphabet_array:
-        occurrence = 0
-        for char in string:
-            if char == alphabet:
-                occurrence += 1
-        if occurrence > max_occurrence:
-            max_occurrence = occurrence
-            max_alphabet = alphabet
-            
+    for alphabet in alphabet_array: # N(26)
+        occurrence = 0 # 1
+
+        for char in string: # N => N*2
+            if char == alphabet: # 1
+                occurrence += 1 # 1
+
+        if occurrence > max_occurrence: # 1 => 3
+            max_occurrence = occurrence # 1
+            max_alphabet = alphabet # 1
+
     return max_alphabet
 
-    return "a"
+    # 시간복잡도 : 26*(1 + (N*2) + 3) = 52N+104 => O(N)
 
 
 result = find_max_occurred_alphabet(input)
